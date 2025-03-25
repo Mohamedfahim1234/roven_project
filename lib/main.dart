@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/examapp.dart';
 import 'package:flutter_application_1/forgetpassout.dart';
 
 void main() {

@@ -43,7 +43,7 @@ class ExamApp extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 50),
                   child: Text("Email:"),
                 ),
-                Container(
+                SizedBox(
                   width: 200,
                   height: 35,
                   child: Padding(
