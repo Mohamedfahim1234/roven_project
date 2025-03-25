@@ -10,47 +10,77 @@ class menubar extends StatelessWidget {
         child: Column(
           children: [
             Row(children: [Row
-          (mainAxisAlignment: MainAxisAlignment.start),
-          IconButton(onPressed:() {},
-           icon: Image.asset("images/notice.png",height: 50,width: 50,),
-           ),
-            Padding(
+          (mainAxisAlignment: MainAxisAlignment.center),
+          Column(
+            children: [
+              IconButton(onPressed:() {},
+               icon: Image.asset("images/notice.png",height: 50,width: 50,),
+               ),
+               Padding(
               padding: const EdgeInsets.all(10),
               child: 
               Text("Notice Board",
-              style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,
+              style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.blue[300]
               ),
               ),
             ),
             ],
+          ),
+            
+            ],
             ),
           Row(children: [Row
-          (mainAxisAlignment: MainAxisAlignment.start),
-          IconButton(onPressed: () {},
-           icon: Image.asset("images/attend.png",height: 50,width: 50,),
-           ),
-           Padding(
+          (mainAxisAlignment: MainAxisAlignment.center),
+          Column(
+            children: [
+              IconButton(onPressed: () {},
+               icon: Image.asset("images/attend.png",height: 50,width: 50,),
+               ),
+                Padding(
              padding: const EdgeInsets.all(8.0),
              child: Text("Attendance",
-             style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,
+             style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.blue[300]
              ),
              ),
            ),
+            ],
+          ),
+          
           ],
           ),
           Row(children: [Row
-          (mainAxisAlignment: MainAxisAlignment.start),
-          IconButton(onPressed: ()  {}, 
-          icon:Image.asset("images/cia.png",height: 70,width: 70,),
-          ),
-          Padding(
+          (mainAxisAlignment: MainAxisAlignment.center),
+          Column(
+            children: [
+              IconButton(onPressed: ()  {}, 
+              icon:Image.asset("images/crop.png",height: 50,width: 50,),
+              ),
+               Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text("CIA Performance",
-            style: TextStyle(fontSize: 15,fontWeight:FontWeight.bold,
+            style: TextStyle(fontSize: 15,fontWeight:FontWeight.bold,color: Colors.blue[300],
              ),
             ),
           )
-          ],)
+            ],
+          ),
+         
+          ],
+          ),
+          Row(children: [Row
+          (mainAxisAlignment: MainAxisAlignment.center),
+          IconButton(onPressed: ()  {}, 
+          icon:Image.asset("images/SEA.png",height: 50,width:50),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("SEA Performance",
+            style: TextStyle(fontSize: 15,fontWeight: FontWeight.normal,color: Colors.blue[300]
+            ),
+            ),
+          ),
+          ],
+          ),
           ]  
     ),
     ),
