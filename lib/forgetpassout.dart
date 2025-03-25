@@ -85,7 +85,11 @@ class Forgetpassout extends StatelessWidget {
                                   style: TextStyle(fontSize: 10)),
                             ),
                             SizedBox(width: 5),
-                            Icon(Icons.location_searching_rounded, size: 12),
+                            Padding(
+                              padding: const EdgeInsets.all(1.0),
+                              child: Image.asset("images/loginouticon.jpg",
+                                  height: 15, width: 15),
+                            ),
                           ],
                         ),
                         Row(
@@ -97,7 +101,11 @@ class Forgetpassout extends StatelessWidget {
                                   style: TextStyle(fontSize: 10)),
                             ),
                             SizedBox(width: 5),
-                            Icon(Icons.access_time, size: 12),
+                            Padding(
+                              padding: const EdgeInsets.all(1.0),
+                              child: Image.asset("images/timeicon.jpg",
+                                  height: 15, width: 15),
+                            ),
                           ],
                         ),
                       ],
