@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/forgetpassout.dart';
+import 'package:flutter_application_1/profileforgetpass.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
       // home: const ExamApp(),
       // home: Forgetpassout(),
       // home: Support(),
+      // home: Profileforgetpass(),
     );
   }
 }
