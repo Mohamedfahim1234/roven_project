@@ -103,14 +103,14 @@ class Forgetpassout extends StatelessWidget {
                       ),
                       child: Text("Reset Password"),
                     ),
-                    SizedBox(width: 40), // Adjust spacing between buttons
+                    SizedBox(width: 50), // Adjust spacing between buttons
                     TextButton(
                       onPressed: () {},
                       style: TextButton.styleFrom(
                         foregroundColor: Colors.white,
                         backgroundColor: Colors.blue[900],
                         padding:
-                            EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                         minimumSize: Size.zero, // Ensures content-based size
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
