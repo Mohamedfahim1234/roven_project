@@ -79,7 +79,7 @@ class menubar extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            Container(
               height: 300,
               width: 300,
               child: Row(
