@@ -8,109 +8,163 @@ class menubar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column(children: [
-          Row(
-            children: [
-              Row(mainAxisAlignment: MainAxisAlignment.center),
-              Column(
+        child: Center(
+          child: Column(children: [
+            SizedBox(
+              height: 200,
+              width: 200,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Image.asset(
-                      "images/notice.png",
-                      height: 50,
-                      width: 50,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Text(
-                      "Notice Board",
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blue[300]),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Row(mainAxisAlignment: MainAxisAlignment.center),
-              Column(
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Image.asset(
-                      "images/attend.png",
-                      height: 50,
-                      width: 50,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      "Attendance",
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blue[300]),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Row(mainAxisAlignment: MainAxisAlignment.center),
-              Column(
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Image.asset(
-                      "images/crop.png",
-                      height: 50,
-                      width: 50,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      "CIA Performance",
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue[300],
+                  Column(
+                    children: [
+                      Image.asset(
+                        "images/attend.png",
+                        height: 150,
+                        width: 150,
                       ),
-                    ),
-                  )
+                      Text("Notice Board",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ],
+                  ),
                 ],
               ),
-            ],
-          ),
-          Row(
-            children: [
-              Row(mainAxisAlignment: MainAxisAlignment.center),
-              IconButton(
-                onPressed: () {},
-                icon: Image.asset("images/SEA.png", height: 50, width: 50),
+            ),
+            SizedBox(
+              height: 200,
+              width: 200,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      Image.asset(
+                        "images/attend.png",
+                        height: 150,
+                        width: 150,
+                      ),
+                      Text("Notice Board",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ],
+                  ),
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "SEA Performance",
-                  style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.blue[300]),
-                ),
+            ),
+            SizedBox(
+              height: 200,
+              width: 200,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      Image.asset(
+                        "images/attend.png",
+                        height: 150,
+                        width: 150,
+                      ),
+                      Text("Notice Board",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ],
+                  ),
+                ],
               ),
-            ],
-          ),
-        ]),
+            ),
+            Container(
+              height: 300,
+              width: 300,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      IconButton(
+                        icon: Image.asset(
+                          "images/attend.png",
+                          height: 200,
+                          width: 200,
+                        ),
+                        onPressed: () {
+                          // Add your onPressed functionality here
+                        },
+                      ),
+                      Text("Notice Board",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 300,
+              width: 300,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      IconButton(
+                        icon: Image.asset(
+                          "images/attend.png",
+                          height: 150,
+                          width: 150,
+                        ),
+                        onPressed: () {
+                          // Add your onPressed functionality here
+                        },
+                      ),
+                      Text("Notice Board",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 300,
+              width: 300,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      IconButton(
+                        icon: Image.asset(
+                          "images/attend.png",
+                          height: 150,
+                          width: 150,
+                        ),
+                        onPressed: () {
+                          // Add your onPressed functionality here
+                        },
+                      ),
+                      Text("Notice Board",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ]),
+        ),
       ),
     );
   }

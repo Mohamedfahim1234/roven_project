@@ -101,6 +101,64 @@ class Profileforgetpass extends StatelessWidget {
               ],
             ),
           ),
+          Container(
+            height: 50,
+            width: double.infinity,
+            margin: EdgeInsets.only(left: 2, right: 2, top: 2),
+            decoration: BoxDecoration(
+              color: Colors.white70,
+              borderRadius: BorderRadius.circular(5),
+              boxShadow: [
+                BoxShadow(
+                  // ignore: deprecated_member_use
+                  color: Colors.grey.withOpacity(0.5),
+                  blurRadius: 50,
+                  spreadRadius: 0,
+                  offset: Offset(4, 4),
+                ),
+              ],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 110),
+                  child: Text(
+                    "Change Password",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(width: 2),
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Home",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Back",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.only(top: 60),
             child: Container(
