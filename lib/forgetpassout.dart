@@ -53,7 +53,7 @@ class Forgetpassout extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "Roll No",
+                          "Roll No.",
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.black,
