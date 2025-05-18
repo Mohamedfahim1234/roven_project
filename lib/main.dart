@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/examapp.dart';
-import 'package:flutter_application_1/forgetpassout.dart';
 
 void main() {
   runApp(ProfileApp());
@@ -10,13 +8,9 @@ class ProfileApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-<<<<<<< HEAD
       title: 'Profile Page',
       home: ProfileScreen(),
       debugShowCheckedModeBanner: false,
-=======
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -35,9 +29,6 @@ class ProfileApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      // home: const ExamApp(),
-      home: Forgetpassout(),
->>>>>>> 7edfb63a682a30b3e22d902fc03cb2aa063cba1a
     );
   }
 }
