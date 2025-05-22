@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
+import 'package:flutter_application_1/attendance.dart';
+=======
+import 'package:flutter_application_1/profile.rakesh.dart';
+>>>>>>> 1ce311082f99dcb3d47f33b268caec57112d8a52
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
@@ -31,13 +32,10 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      // home: menubar(),
       // home: const ExamApp(),
+<<<<<<< HEAD
       // home: Forgetpassout(),
-      // home: Support(),
-      // home: Profileforgetpass(),
+      home: const Attendance(),
     );
   }
 }
@@ -124,6 +122,9 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+=======
+      home: ProfileScreen(),
+>>>>>>> 1ce311082f99dcb3d47f33b268caec57112d8a52
     );
   }
 }
