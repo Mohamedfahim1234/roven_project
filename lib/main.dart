@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'menubar.dart';
 import 'package:flutter_application_1/forgetpassout.dart';
 import 'package:flutter_application_1/support.dart';
+=======
+>>>>>>> 296a0fb5ea3a96247631590b2273e9c284031e20
 
 void main() {
   runApp(const MyApp());
@@ -36,9 +39,14 @@ class MyApp extends StatelessWidget {
       ),
 
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home: menubar(),
+      // home: menubar(),
       // home: const ExamApp(),
       // home: Forgetpassout(),
+<<<<<<< HEAD
+=======
+      // home: Support(),
+      // home: Profileforgetpass(),
+>>>>>>> 296a0fb5ea3a96247631590b2273e9c284031e20
     );
   }
 }
