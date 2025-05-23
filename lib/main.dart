@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'menubar.dart';
-=======
-import 'package:flutter_application_1/examapp.dart';
->>>>>>> 050fb5d97f640801d09aabbdefdd35f16446c355
 import 'package:flutter_application_1/forgetpassout.dart';
 import 'package:flutter_application_1/support.dart';
 
@@ -43,12 +39,6 @@ class MyApp extends StatelessWidget {
       home: menubar(),
       // home: const ExamApp(),
       // home: Forgetpassout(),
-<<<<<<< HEAD
-
-=======
-      // home: ExamApp(),
-      home: Support(),
->>>>>>> 050fb5d97f640801d09aabbdefdd35f16446c355
     );
   }
 }
