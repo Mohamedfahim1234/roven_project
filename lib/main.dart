@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/examapp-kathiravan.dart';
-import 'package:flutter_application_1/support-sivapratheepa.dart';
+import 'package:flutter_application_1/loginpage_suji.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,6 +39,7 @@ class MyApp extends StatelessWidget {
       // home: Support(),
       // home: Profileforgetpass(),
       // home: const Attendance(),
+      // home: Loginpage(),
     );
   }
 }

@@ -10,9 +10,12 @@ class Attendance extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10),
-            child: Text(
-              "Home",
-              style: TextStyle(color: Colors.indigo[300]),
+            child: TextButton(
+              onPressed: () {},
+              child: Text(
+                "Home",
+                style: TextStyle(color: Colors.indigo[300]),
+              ),
             ),
           )
         ],
