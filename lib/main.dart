@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/loginpage_suji.dart';
+import 'package:flutter_application_1/menubar_prathipa.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
       // home: Profileforgetpass(),
       // home: const Attendance(),
       // home: Loginpage(),
+      // home: Menubar(),
     );
   }
 }
