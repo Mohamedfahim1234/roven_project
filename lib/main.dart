@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/loginhistory.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,6 +36,8 @@ class MyApp extends StatelessWidget {
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
       // home: const ExamApp(),
       // home: Forgetpassout(),
+      // home: const Attendance(),
+      // home: LoginHistoryPage(),
       // home: Support(),
       // home: Profileforgetpass(),
       // home: const Attendance(),
