@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/loginpage_suji.dart';
-import 'package:flutter_application_1/menubar_prathipa.dart';
-import 'package:flutter_application_1/revaluationresult_ranjith.dart';
 
 void main() {
   runApp(const MyApp());
