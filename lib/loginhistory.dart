@@ -8,6 +8,8 @@ void main() {
 }
 
 class LoginHistoryPage extends StatefulWidget {
+  const LoginHistoryPage({super.key});
+
   @override
   _LoginHistoryPageState createState() => _LoginHistoryPageState();
 }

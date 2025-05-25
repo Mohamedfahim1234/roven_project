@@ -4,6 +4,8 @@ class ProfileScreen extends StatelessWidget {
   final TextStyle labelStyle = TextStyle(fontWeight: FontWeight.w500);
   final TextStyle valueStyle = TextStyle(fontWeight: FontWeight.bold);
 
+  ProfileScreen({super.key});
+
   Widget buildRow(String label, String value) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),

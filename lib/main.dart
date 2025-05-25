@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:flutter_application_1/attendance.dart';
+=======
+import 'package:flutter_application_1/loginpage_suji.dart';
+import 'package:flutter_application_1/menubar_prathipa.dart';
+>>>>>>> 5c938fd88737a873a92e54d3d66e2e55b2fb7cb0
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
@@ -28,10 +37,20 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
+
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
       // home: const ExamApp(),
       // home: Forgetpassout(),
+<<<<<<< HEAD
      // home: const Attendance(),
       home: const LoginHistoryPage(),
+=======
+      // home: Support(),
+      // home: Profileforgetpass(),
+      // home: const Attendance(),
+      // home: Loginpage(),
+      // home: Menubar(),
+>>>>>>> 5c938fd88737a873a92e54d3d66e2e55b2fb7cb0
     );
   }
 }
