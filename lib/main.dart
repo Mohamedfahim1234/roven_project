@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/examapp2_kathiravan.dart';
-import 'package:flutter_application_1/loginhistory.dart';
+import 'package:flutter_application_1/examapplication1_ranjith.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,6 +44,7 @@ class MyApp extends StatelessWidget {
       // home: Loginpage(),
       // home: Menubar(),
       // home: RevaluationApp(),
+      // home: ExamApplicationApp(),
     );
   }
 }
