@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/menubar_prathipa.dart';
 
 void main() {
   runApp(const RevaluationApp());
@@ -26,7 +27,17 @@ class RevaluationResultPage extends StatefulWidget {
 
 class _RevaluationResultPageState extends State<RevaluationResultPage> {
   String? selectedOption;
-  final List<String> options = ['Select Option']; // Add real options here
+  final List<String> options = [
+    'Select Semester',
+    'Semester 1',
+    'Semester 2',
+    'Semester 3',
+    'Semester 4',
+    'Semester 5',
+    'Semester 6',
+    'Semester 7',
+    'Semester 8'
+  ]; // Add real options here
 
   @override
   Widget build(BuildContext context) {
@@ -136,6 +147,15 @@ class _RevaluationResultPageState extends State<RevaluationResultPage> {
               child: Column(
                 children: [
                   AppBar(
+                    leading: IconButton(
+                      icon: const Icon(Icons.arrow_back),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Menubar()),
+                        );
+                      },
+                    ),
                     title: const Text(
                       'REVALUATION RESULT',
                       style:
@@ -155,8 +175,7 @@ class _RevaluationResultPageState extends State<RevaluationResultPage> {
                     ),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton<String>(
-                        value: selectedOption,
-                        hint: const Text("Select Option"),
+                        value: selectedOption ?? options[0],
                         isExpanded: true,
                         onChanged: (String? newValue) {
                           setState(() {

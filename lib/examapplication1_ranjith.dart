@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/examapp2_kathiravan.dart';
+import 'package:flutter_application_1/menubar_prathipa.dart';
 
 void main() {
   runApp(ExamApplicationApp());
@@ -121,7 +123,7 @@ class ExamApplicationPage extends StatelessWidget {
 
           // Title bar
           Container(
-            color: Colors.grey[500],
+            color: const Color(0xFFF5F5F5), // Very lightest grey
             padding: const EdgeInsets.symmetric(vertical: 5),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -144,12 +146,16 @@ class ExamApplicationPage extends StatelessWidget {
                   padding: const EdgeInsets.only(right: 16),
                   child: TextButton(
                     onPressed: () {
-                      // Add navigation to home screen logic here
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Menubar()),
+                      );
                     },
                     child: const Text(
                       'Home',
                       style: TextStyle(
-                        color: Colors.blue,
+                        color: Colors.black87, // Changed from blue to dark grey
                         fontSize: 16,
                       ),
                     ),
@@ -176,7 +182,10 @@ class ExamApplicationPage extends StatelessWidget {
                   const SizedBox(height: 10),
                   ElevatedButton(
                     onPressed: () {
-                      // Add "Apply" button functionality here
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ExamApp()),
+                      ); // Add "Apply" button functionality here
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,

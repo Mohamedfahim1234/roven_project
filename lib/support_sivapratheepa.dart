@@ -112,12 +112,27 @@ class Support extends StatelessWidget {
               color: Colors.grey[400],
               borderRadius: BorderRadius.circular(5),
             ),
-            child: Text(
-              "Support",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+                Expanded(
+                  child: Center(
+                    child: Text(
+                      "Support",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           SizedBox(height: 20),

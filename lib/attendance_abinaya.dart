@@ -1,59 +1,310 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/menubar_prathipa.dart';
+import 'applyleave.dart';
 
-class Attendance extends StatelessWidget {
+class Attendance extends StatefulWidget {
   const Attendance({super.key});
+
+  @override
+  State<Attendance> createState() => _AttendanceState();
+}
+
+class _AttendanceState extends State<Attendance> {
+  String selectedSemester = 'Semester 1';
+  final List<String> semesters = [
+    'Semester 1',
+    'Semester 2',
+    'Semester 3',
+    'Semester 4',
+    'Semester 5',
+    'Semester 6',
+    'Semester 7',
+    'Semester 8',
+  ];
+
+  // On Duty Data
+  final List<Map<String, String>> onDutyData = [
+    {
+      'from': '15-05-2025',
+      'to': '15-05-2025',
+      'days': '1.0',
+      'type': 'Technical',
+      'period': 'FN',
+      'reason': 'Paper Presentation at Anna University'
+    },
+    {
+      'from': '20-04-2025',
+      'to': '20-04-2025',
+      'days': '1.0',
+      'type': 'Sports',
+      'period': 'AN',
+      'reason': 'Cricket Tournament at Zone Level'
+    },
+    {
+      'from': '10-03-2025',
+      'to': '11-03-2025',
+      'days': '2.0',
+      'type': 'Technical',
+      'period': 'FN & AN',
+      'reason': 'Workshop on AI/ML at IIT Madras'
+    },
+  ];
+
+  void _showOnDutyDetails() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'On Duty Details',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.close),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: DataTable(
+                      headingRowColor:
+                          WidgetStateProperty.all(const Color(0xFFF5F5F5)),
+                      columnSpacing: 20,
+                      columns: const [
+                        DataColumn(
+                            label: Text('From',
+                                style: TextStyle(fontWeight: FontWeight.bold))),
+                        DataColumn(
+                            label: Text('To',
+                                style: TextStyle(fontWeight: FontWeight.bold))),
+                        DataColumn(
+                            label: Text('Days',
+                                style: TextStyle(fontWeight: FontWeight.bold))),
+                        DataColumn(
+                            label: Text('Type',
+                                style: TextStyle(fontWeight: FontWeight.bold))),
+                        DataColumn(
+                            label: Text('Period',
+                                style: TextStyle(fontWeight: FontWeight.bold))),
+                        DataColumn(
+                            label: Text('Reason',
+                                style: TextStyle(fontWeight: FontWeight.bold))),
+                      ],
+                      rows: onDutyData.map((entry) {
+                        return DataRow(
+                          cells: [
+                            DataCell(Text(entry['from']!)),
+                            DataCell(Text(entry['to']!)),
+                            DataCell(Text(entry['days']!)),
+                            DataCell(Text(entry['type']!)),
+                            DataCell(Text(entry['period']!)),
+                            DataCell(Text(entry['reason']!)),
+                          ],
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: TextButton(
-              onPressed: () {},
-              child: Text(
-                "Home",
-                style: TextStyle(color: Colors.indigo[300]),
-              ),
-            ),
-          )
-        ],
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 150),
-                child: Text(
-                  "ATTENDANCE",
-                  style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
       body: SingleChildScrollView(
         child: Column(children: [
-          Row(
-            children: [
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 170),
-                  child: Text(
-                    "Apply Leave",
-                    style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.indigo,
-                        fontWeight: FontWeight.bold),
+          // Header with user info
+          Container(
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  width: 2,
+                  color: Colors.blue[900] ?? Colors.blue,
+                ),
+              ),
+            ),
+            child: Row(
+              children: [
+                Image.asset("images/jitlogo-removedbg.png",
+                    height: 80, width: 80),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text("Welcome Mohamed Fahim R",
+                          style: TextStyle(fontSize: 10)),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text("210622205042", style: TextStyle(fontSize: 10)),
+                          SizedBox(width: 5),
+                          Image.asset("images/loginouticon.jpg",
+                              height: 15, width: 15),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text("Login Time : 31-10-2024 14:08:27",
+                              style: TextStyle(fontSize: 10)),
+                          SizedBox(width: 5),
+                          Image.asset("images/timeicon.jpg",
+                              height: 15, width: 15),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-              )
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Image.asset("images/person-removedbg.png",
+                      height: 60, width: 60),
+                ),
+              ],
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              // Title
+              Padding(
+                padding: const EdgeInsets.only(left: 150),
+                child: const Text(
+                  "ATTENDANCE",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black87,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+
+              // Home button
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Menubar(),
+                    ),
+                  );
+                },
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                ),
+                child: Text(
+                  "Home",
+                  style: TextStyle(
+                    color: Colors.indigo[400],
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
             ],
+          ),
+          // Semester dropdown and Apply Leave button
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // Semester Dropdown
+                Container(
+                  height: 40,
+                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey[300]!),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: DropdownButton<String>(
+                    value: selectedSemester,
+                    icon: const Icon(Icons.arrow_drop_down),
+                    elevation: 16,
+                    style: TextStyle(color: Colors.indigo[700], fontSize: 14),
+                    underline: Container(height: 0),
+                    onChanged: (String? value) {
+                      setState(() {
+                        selectedSemester = value!;
+                      });
+                    },
+                    items:
+                        semesters.map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                  ),
+                ),
+
+                // Apply Leave Button
+                Container(
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(4),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 4,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: TextButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ApplyLeave(),
+                        ),
+                      );
+                    },
+                    icon: Icon(
+                      Icons.add_circle_outline,
+                      color: Colors.indigo[400],
+                      size: 20,
+                    ),
+                    label: Text(
+                      "Apply Leave",
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.indigo[400],
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12.0,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(16),
@@ -215,8 +466,22 @@ class Attendance extends StatelessWidget {
                 SizedBox(height: 16),
                 Center(
                   child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text("Show On Duty Details"),
+                    onPressed: _showOnDutyDetails,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.indigo[400],
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 12,
+                      ),
+                      elevation: 2,
+                    ),
+                    child: const Text(
+                      "Show On Duty Details",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
                   ),
                 ),
               ],

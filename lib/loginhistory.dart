@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/menubar_prathipa.dart';
 
 void main() => runApp(LoginHistorypage());
 
@@ -144,11 +145,21 @@ class LoginHistoryPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(right: 16.0),
-                  child: Text(
-                    'Home',
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 16,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Menubar(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Home',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),

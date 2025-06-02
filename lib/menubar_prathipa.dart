@@ -1,17 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/attendance_abinaya.dart';
+import 'package:flutter_application_1/cia_jeevasarathy.dart';
+import 'package:flutter_application_1/examapplication1_ranjith.dart';
+import 'package:flutter_application_1/loginhistory.dart';
+import 'package:flutter_application_1/noticeboard_vel.dart';
+import 'package:flutter_application_1/profile_rakesh.dart';
+import 'package:flutter_application_1/revaluationresult_ranjith.dart';
+import 'package:flutter_application_1/sea_jayasurya.dart';
+import 'package:flutter_application_1/support_sivapratheepa.dart';
+import 'loginpage_suji.dart';
 
 class Menubar extends StatelessWidget {
   const Menubar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const double imageSize = 100.0; // Standardized size for all images
+    const double imageSize = 100.0;
+    Widget buildMenuItem(
+        String imagePath, String label, VoidCallback onPressed) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 12.0),
+        child: Column(
+          children: [
+            Container(
+              height: imageSize,
+              width: imageSize,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 4,
+                    offset: Offset(2, 2),
+                  ),
+                ],
+                image: DecorationImage(
+                  image: AssetImage(imagePath),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: onPressed,
+              child: Text(
+                label,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
 
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Header Container
+            // Header
             Container(
               decoration: BoxDecoration(
                 border: Border(
@@ -22,300 +72,111 @@ class Menubar extends StatelessWidget {
                 ),
               ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  // Logo
-                  Image.asset(
-                    "images/jitlogo-removedbg.png",
-                    height: 80,
-                    width: 80,
-                  ),
+                  Image.asset("images/jitlogo-removedbg.png",
+                      height: 80, width: 80),
                   Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(1.0),
-                                child: Text(
-                                  "Welcome Mohamed Fahim R",
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(1.0),
-                                child: Text(
-                                  "210622205042",
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ),
-                              SizedBox(width: 5),
-                              Padding(
-                                padding: const EdgeInsets.all(1.0),
-                                child: Image.asset(
-                                  "images/loginouticon.jpg",
-                                  height: 15,
-                                  width: 15,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(1.0),
-                                child: Text(
-                                  "Login Time : 31-10-2024 14:08:27",
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ),
-                              SizedBox(width: 5),
-                              Padding(
-                                padding: const EdgeInsets.all(1.0),
-                                child: Image.asset(
-                                  "images/timeicon.jpg",
-                                  height: 15,
-                                  width: 15,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text("Welcome Mohamed Fahim R",
+                            style: TextStyle(fontSize: 10)),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text("210622205042",
+                                style: TextStyle(fontSize: 10)),
+                            SizedBox(width: 5),
+                            Image.asset("images/loginouticon.jpg",
+                                height: 15, width: 15),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text("Login Time : 31-10-2024 14:08:27",
+                                style: TextStyle(fontSize: 10)),
+                            SizedBox(width: 5),
+                            Image.asset("images/timeicon.jpg",
+                                height: 15, width: 15),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Image.asset(
-                      "images/person-removedbg.png",
-                      height: 60,
-                      width: 60,
-                    ),
+                    padding: const EdgeInsets.all(10),
+                    child: Image.asset("images/person-removedbg.png",
+                        height: 60, width: 60),
                   ),
                 ],
               ),
             ),
-            // Existing Menu Items
+            // Centered Menu Items
             Center(
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      "images/notice.png",
-                      height: 130,
-                      width: 130,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20, bottom: 5),
-                      child: TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "Notice Board",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Image.asset(
-                        "images/attend.png",
-                        height: 160,
-                        width: 160,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "Attendance",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      height: 150, // Increased height
-                      width: 150, // Increased width
-                      child: Image.asset(
-                        "images/crop.png",
-                        height: 150,
-                        width: 150,
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "CIA Performance",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      height: imageSize,
-                      width: imageSize,
-                      child: Image.asset(
-                        "images/application.jpeg",
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "SEA Performance",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      height: imageSize,
-                      width: imageSize,
-                      child: Image.asset(
-                        "images/exam app.jpeg",
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "Exam Application",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      height: imageSize,
-                      width: imageSize,
-                      child: Image.asset(
-                        "images/revaluation.jpeg",
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "Revaluation Result",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      height: imageSize,
-                      width: imageSize,
-                      child: Image.asset(
-                        "images/profile.jpeg",
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "Profile",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      height: imageSize,
-                      width: imageSize,
-                      child: Image.asset(
-                        "images/support.jpeg",
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "Support",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      height: imageSize,
-                      width: imageSize,
-                      child: Image.asset(
-                        "images/login.jpeg",
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "Login History",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      height: 150,
-                      width: 150,
-                      child: Image.asset(
-                        "images/log.jpeg",
-                        height: 150,
-                        width: 150,
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "Logout",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
+                    buildMenuItem("images/notice.png", "Notice Board", () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => NoticeBoardApp()),
+                      );
+                    }),
+                    buildMenuItem("images/attend.png", "Attendance", () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Attendance()),
+                      );
+                    }),
+                    buildMenuItem("images/crop.png", "CIA Performance", () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Ciapage()),
+                      );
+                    }),
+                    buildMenuItem("images/application.jpeg", "SEA Performance",
+                        () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Seapage()),
+                      );
+                    }),
+                    buildMenuItem("images/exam app.jpeg", "Exam Application",
+                        () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => ExamApplicationApp()));
+                    }),
+                    buildMenuItem(
+                        "images/revaluation.jpeg", "Revaluation Result", () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => const RevaluationApp()));
+                    }),
+                    buildMenuItem("images/profile.jpeg", "Profile", () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => ProfileScreen()));
+                    }),
+                    buildMenuItem("images/support.jpeg", "Support", () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => Support()));
+                    }),
+                    buildMenuItem("images/login.jpeg", "Login History", () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => LoginHistoryPage()));
+                    }),
+                    buildMenuItem("images/log.jpeg", "Logout", () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => Loginpage()));
+                    }),
                   ],
                 ),
               ),
