@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/loginpage.dart';
+import 'package:flutter_application_1/menubar.dart';
 
 class Support extends StatelessWidget {
   const Support({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromARGB(255, 249, 249, 255),
-      body: Column(
-        children: [
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Column(
+          children: [
           Container(
             decoration: BoxDecoration(
               border: Border(
@@ -58,11 +61,19 @@ class Support extends StatelessWidget {
                             SizedBox(width: 5),
                             Padding(
                               padding: const EdgeInsets.all(1.0),
-                              child: Image.asset(
-                                "images/loginouticon.jpg",
-                                height: 15,
-                                width: 15,
-                              ),
+                              child: InkWell(
+                              onTap: () {
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Loginpage(),
+                                  ),
+                                  (route) => false,
+                                );
+                              },
+                              child: Image.asset("images/loginouticon.jpg",
+                                height: 15, width: 15),
+                            ),
                             ),
                           ],
                         ),
@@ -102,35 +113,39 @@ class Support extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 20),
           Container(
             alignment: Alignment.center,
             height: 40,
             width: double.infinity,
-            margin: const EdgeInsets.only(left: 10, right: 10),
             decoration: BoxDecoration(
-              color: Colors.grey[400],
+              color: Colors.grey[200],
               borderRadius: BorderRadius.circular(5),
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                IconButton(
-                  icon: Icon(Icons.arrow_back),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
+                
                 Expanded(
                   child: Center(
                     child: Text(
-                      "Support",
+                      "SUPPORT",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
+                        color: Colors.grey[800],
                       ),
                     ),
                   ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Menubar()),
+                    );
+                  },
+                  child: Text("Home",style: TextStyle(color: Colors.blue),),
                 ),
               ],
             ),
@@ -159,7 +174,7 @@ class Support extends StatelessWidget {
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         "JEPPIAAR INSTITUTE OF TECHNOLOGY (AUTONOMOUS)",
                         style: TextStyle(fontWeight: FontWeight.bold),
@@ -169,10 +184,10 @@ class Support extends StatelessWidget {
                       SizedBox(height: 4),
                       Text("Phone : 044-27159000"),
                       SizedBox(height: 4),
-                      Text.rich(
-                        TextSpan(
-                          text: "Email : ",
-                          children: [
+                      RichText(
+                        text: TextSpan(
+                        children: [
+                            TextSpan(text: "Email : ",style: TextStyle(color: Colors.black),),
                             TextSpan(
                               text: "office@jeppiaarinstitute.org",
                               style: TextStyle(color: Colors.blue),
@@ -185,7 +200,7 @@ class Support extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(width: 16),
+                const SizedBox(width: 10),
                 Image.asset(
                   "images/pmm.png",
                   height: 80,
@@ -197,6 +212,7 @@ class Support extends StatelessWidget {
           ),
         ],
       ),
+    ),
     );
   }
 }

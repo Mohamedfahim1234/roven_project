@@ -35,6 +35,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   syncfusion_flutter_datagrid: ^28.2.12
+  flutter_launcher_icons: ^0.14.3
+  flutter_native_splash: ^2.4.6
   http: ^1.4.0
 
 dev_dependencies:
@@ -89,3 +91,19 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: images/logo.png
+  android_gravity: center
+  ios_content_mode: center
+  fullscreen: true
+
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "images/logo.png"
+  background_color: "#FFFFFF"
+  padding: 20
+

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/menubar_prathipa.dart';
+import 'package:flutter_application_1/loginpage.dart';
+import 'package:flutter_application_1/menubar.dart';
 
 void main() {
   runApp(const RevaluationApp());
@@ -41,9 +42,10 @@ class _RevaluationResultPageState extends State<RevaluationResultPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Column(
         children: [
           // Header Container
           Container(
@@ -95,11 +97,19 @@ class _RevaluationResultPageState extends State<RevaluationResultPage> {
                             const SizedBox(width: 5),
                             Padding(
                               padding: const EdgeInsets.all(1.0),
-                              child: Image.asset(
-                                "images/loginouticon.jpg",
-                                height: 15,
-                                width: 15,
-                              ),
+                              child:  InkWell(
+                              onTap: () {
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Loginpage(),
+                                  ),
+                                  (route) => false,
+                                );
+                              },
+                              child: Image.asset("images/loginouticon.jpg",
+                                height: 15, width: 15),
+                            ),
                             ),
                           ],
                         ),
@@ -141,37 +151,46 @@ class _RevaluationResultPageState extends State<RevaluationResultPage> {
           ),
 
           // Main Content
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AppBar(
-                    leading: IconButton(
-                      icon: const Icon(Icons.arrow_back),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Menubar()),
-                        );
-                      },
-                    ),
-                    title: const Text(
-                      'REVALUATION RESULT',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                    ),
-                    centerTitle: true,
-                    backgroundColor: Colors.grey[200],
-                    foregroundColor: Colors.black,
-                    elevation: 1,
-                  ),
-                  const SizedBox(height: 20),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    padding: const EdgeInsets.symmetric(vertical: 12,horizontal: 5),
+                    alignment: Alignment.center,
                     decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                    ),
+                    child:Padding(
+                      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 1/4),
+                      child:Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                        const Text(
+                          'REVALUATION RESULT',
+                          style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize:18),
+                        ),
+                        const SizedBox(width: 10),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Menubar()));
+                          },
+                          child: const Text("Home",style: TextStyle(color: Colors.blue),),
+                        ),
+                      ],
+                    ),
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                    Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    child: Container(
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      width: MediaQuery.of(context).size.width * 0.7,
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      decoration: BoxDecoration(
                       border: Border.all(color: Colors.black, width: 1.5),
-                      borderRadius: BorderRadius.circular(6),
+                      borderRadius: BorderRadius.circular(5),
                     ),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton<String>(
@@ -191,6 +210,7 @@ class _RevaluationResultPageState extends State<RevaluationResultPage> {
                       ),
                     ),
                   ),
+                    ),
                   const SizedBox(height: 40),
                   const Center(
                     child: Text(
@@ -203,9 +223,9 @@ class _RevaluationResultPageState extends State<RevaluationResultPage> {
                   ),
                 ],
               ),
-            ),
-          ),
+            
         ],
+      ),
       ),
     );
   }

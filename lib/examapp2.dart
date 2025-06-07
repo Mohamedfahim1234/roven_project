@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/examapplication1.dart';
 
 class ExamApp extends StatelessWidget {
   const ExamApp({super.key});
@@ -208,7 +209,9 @@ class ExamApp extends StatelessWidget {
                                 horizontal: 32, vertical: 12),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => ExamApplicationApp()));
+                        },
                         child: Text(
                           "Close",
                           style: TextStyle(

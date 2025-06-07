@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/attendance_abinaya.dart';
-import 'package:flutter_application_1/cia_jeevasarathy.dart';
-import 'package:flutter_application_1/examapplication1_ranjith.dart';
+import 'package:flutter_application_1/attendance.dart';
+import 'package:flutter_application_1/cia.dart';
+import 'package:flutter_application_1/examapplication1.dart';
 import 'package:flutter_application_1/loginhistory.dart';
-import 'package:flutter_application_1/noticeboard_vel.dart';
-import 'package:flutter_application_1/profile_rakesh.dart';
-import 'package:flutter_application_1/revaluationresult_ranjith.dart';
-import 'package:flutter_application_1/sea_jayasurya.dart';
-import 'package:flutter_application_1/support_sivapratheepa.dart';
-import 'loginpage_suji.dart';
+import 'package:flutter_application_1/noticeboard.dart';
+import 'package:flutter_application_1/profile.dart';
+import 'package:flutter_application_1/revaluationresult.dart';
+import 'package:flutter_application_1/sea.dart';
+import 'package:flutter_application_1/support.dart';
+import 'loginpage.dart';
 
 class Menubar extends StatelessWidget {
   const Menubar({super.key});
@@ -20,10 +20,12 @@ class Menubar extends StatelessWidget {
         String imagePath, String label, VoidCallback onPressed) {
       return Padding(
         padding: const EdgeInsets.symmetric(vertical: 12.0),
-        child: Column(
-          children: [
-            Container(
-              height: imageSize,
+        child: InkWell(
+          onTap: onPressed,
+          child: Column(
+            children: [
+              Container(
+                height: imageSize,
               width: imageSize,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -41,9 +43,7 @@ class Menubar extends StatelessWidget {
                 ),
               ),
             ),
-            TextButton(
-              onPressed: onPressed,
-              child: Text(
+            Text(
                 label,
                 style: const TextStyle(
                   fontSize: 16,
@@ -51,15 +51,15 @@ class Menubar extends StatelessWidget {
                   color: Colors.black,
                 ),
               ),
-            ),
           ],
+        ),
         ),
       );
     }
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
+    return SafeArea(
+      child: Scaffold(
+      body: Column(
           children: [
             // Header
             Container(
@@ -87,9 +87,20 @@ class Menubar extends StatelessWidget {
                             Text("210622205042",
                                 style: TextStyle(fontSize: 10)),
                             SizedBox(width: 5),
-                            Image.asset("images/loginouticon.jpg",
+                           InkWell(
+                            onTap: () {
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Loginpage(),
+                                ),
+                                (route) => false,
+                              );
+                            },
+                            child: Image.asset("images/loginouticon.jpg",
                                 height: 15, width: 15),
-                          ],
+                          ),
+                        ],
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -113,13 +124,23 @@ class Menubar extends StatelessWidget {
               ),
             ),
             // Centered Menu Items
-            Center(
+            Expanded(
+                  child: SingleChildScrollView(
+                  child: Center(
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    buildMenuItem("images/notice.png", "Notice Board", () {
+                    GridView.count(
+                      shrinkWrap: true,
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      scrollDirection: Axis.vertical,
+                      physics: const NeverScrollableScrollPhysics(),
+                      children: [
+                        buildMenuItem("images/notice.png", "Notice Board", () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -169,15 +190,21 @@ class Menubar extends StatelessWidget {
                     }),
                     buildMenuItem("images/login.jpeg", "Login History", () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => LoginHistoryPage()));
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginHistoryPage(),
+                                ),
+                              );
                     }),
                     buildMenuItem("images/log.jpeg", "Logout", () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (_) => Loginpage()));
                     }),
+                    ],
+                  ),
                   ],
+                ),
+                ),
                 ),
               ),
             ),
@@ -185,5 +212,6 @@ class Menubar extends StatelessWidget {
         ),
       ),
     );
+
   }
 }

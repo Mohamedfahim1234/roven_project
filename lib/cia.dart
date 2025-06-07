@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/menubar_prathipa.dart';
+import 'package:flutter_application_1/menubar.dart';
 
 class Ciapage extends StatefulWidget {
   const Ciapage({super.key});
@@ -159,7 +159,7 @@ class _CiapageState extends State<Ciapage> {
       appBar: AppBar(
         title: const Text(
           'EXAM - CIA',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
         ),
         centerTitle: true,
         backgroundColor: Colors.grey[300],

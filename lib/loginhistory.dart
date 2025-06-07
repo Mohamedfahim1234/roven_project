@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/menubar_prathipa.dart';
+import 'package:flutter_application_1/loginpage.dart';
+import 'package:flutter_application_1/menubar.dart';
 
 void main() => runApp(LoginHistorypage());
 
@@ -23,10 +24,11 @@ class LoginHistoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        children: [
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Column(
+          children: [
           // Header Container
           Container(
             decoration: BoxDecoration(
@@ -77,11 +79,19 @@ class LoginHistoryPage extends StatelessWidget {
                             SizedBox(width: 5),
                             Padding(
                               padding: const EdgeInsets.all(1.0),
-                              child: Image.asset(
-                                "images/loginouticon.jpg",
-                                height: 15,
-                                width: 15,
-                              ),
+                              child:  InkWell(
+                              onTap: () {
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Loginpage(),
+                                  ),
+                                  (route) => false,
+                                );
+                              },
+                              child: Image.asset("images/loginouticon.jpg",
+                                height: 15, width: 15),
+                            ),
                             ),
                           ],
                         ),
@@ -131,13 +141,13 @@ class LoginHistoryPage extends StatelessWidget {
                 Expanded(
                   child: Center(
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 40),
+                      padding: const EdgeInsets.only(left: 60),
                       child: Text(
                         'LOGIN HISTORY',
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
-                          fontSize: 16,
+                          fontSize: 18,
                         ),
                       ),
                     ),
@@ -171,7 +181,17 @@ class LoginHistoryPage extends StatelessWidget {
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(24.0),
+                padding: const EdgeInsets.all(15.0),
+                child: Container(
+                  padding: const EdgeInsets.all(15.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(5),
+                    border: Border.all(
+                      color: Colors.grey[300] ?? Colors.grey,
+                      width: 1,
+                    ),
+                  ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -185,34 +205,47 @@ class LoginHistoryPage extends StatelessWidget {
                     SizedBox(height: 20),
                     Text('Login Date'),
                     SizedBox(height: 5),
-                    TextField(
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.04,
+                    child:TextField(
                       controller: fromDateController,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: '',
                       ),
                     ),
-                    SizedBox(height: 20),
+                    ),
+                    SizedBox(height: 10),
                     Text('To'),
                     SizedBox(height: 5),
-                    TextField(
+                    SizedBox(
+                       height: MediaQuery.of(context).size.height * 0.04,
+                    child:TextField(
                       controller: toDateController,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: '',
                       ),
                     ),
+                    ),
                     SizedBox(height: 30),
-                    Center(
-                      child: ElevatedButton(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                    SizedBox(
+                     height: MediaQuery.of(context).size.height * 0.04,
+                     child: ElevatedButton(
                         onPressed: () {
                           // Add search functionality
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue[900],
+                          backgroundColor: Colors.blue,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5)
+                          ),
                           padding: EdgeInsets.symmetric(
-                            horizontal: 30,
-                            vertical: 10,
+                            horizontal: 20,
+                            vertical: 0,
                           ),
                         ),
                         child: Text(
@@ -224,12 +257,16 @@ class LoginHistoryPage extends StatelessWidget {
                         ),
                       ),
                     ),
+                    ],
+                    ),
                   ],
                 ),
               ),
             ),
           ),
+          ),
         ],
+      ),
       ),
     );
   }

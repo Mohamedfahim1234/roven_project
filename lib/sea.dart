@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/menubar_prathipa.dart';
+import 'package:flutter_application_1/menubar.dart';
 
 class Seapage extends StatefulWidget {
   const Seapage({super.key});
@@ -84,7 +84,7 @@ class _SeapageState extends State<Seapage> {
       appBar: AppBar(
         title: const Text(
           'EXAM - SEA',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
         ),
         centerTitle: true,
         backgroundColor: Colors.grey[300],

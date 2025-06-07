@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/loginpage.dart';
+import 'package:flutter_application_1/menubar.dart';
+import 'package:flutter_application_1/profile.dart';
 
 class Profileforgetpass extends StatelessWidget {
   const Profileforgetpass({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Column(
+          children: [
           Container(
             decoration: BoxDecoration(
               border: Border(
@@ -57,11 +62,19 @@ class Profileforgetpass extends StatelessWidget {
                             SizedBox(width: 5),
                             Padding(
                               padding: const EdgeInsets.all(1.0),
-                              child: Image.asset(
-                                "images/loginouticon.jpg",
-                                height: 15,
-                                width: 15,
-                              ),
+                              child: InkWell(
+                              onTap: () {
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Loginpage(),
+                                  ),
+                                  (route) => false,
+                                );
+                              },
+                              child: Image.asset("images/loginouticon.jpg",
+                                height: 15, width: 15),
+                            ),
                             ),
                           ],
                         ),
@@ -122,33 +135,51 @@ class Profileforgetpass extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 110),
+                  padding: const EdgeInsets.only(left: 100),
                   child: Text(
                     "Change Password",
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
                 SizedBox(width: 2),
                 Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    TextButton(
-                      onPressed: () {},
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Menubar(),
+                          ),
+                        );
+                      },
                       child: Text(
                         "Home",
                         style: TextStyle(
+                          color: Colors.blue,
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                    TextButton(
-                      onPressed: () {},
+                    SizedBox(width: 5),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProfileScreen(),
+                          ),
+                        );
+                      },
                       child: Text(
                         "Back",
                         style: TextStyle(
+                          color: Colors.blue,
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                         ),
@@ -159,38 +190,9 @@ class Profileforgetpass extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 60),
-            child: Container(
-              height: 500,
-              width: 400,
-              margin: EdgeInsets.only(top: 50, left: 30, right: 30),
-              decoration: BoxDecoration(
-                color: Colors.white70,
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                    // ignore: deprecated_member_use
-                    color: Colors.grey.withOpacity(0.5),
-                    blurRadius: 10,
-                    spreadRadius: 2,
-                    offset: Offset(4, 4),
-                  ),
-                ],
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
+          
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Image.asset(
-                      "images/jitlogo-removedbg.png",
-                      height: 115,
-                      width: 115,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, bottom: 5),
+                    padding: const EdgeInsets.only(left: 20, top: 20),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Row(
@@ -223,7 +225,7 @@ class Profileforgetpass extends StatelessWidget {
                           labelText: 'Enter old password',
                           labelStyle: TextStyle(color: Colors.black),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide(
                               color: Colors.blue,
                               width: 2,
@@ -268,7 +270,7 @@ class Profileforgetpass extends StatelessWidget {
                           labelText: 'Enter New Password',
                           labelStyle: TextStyle(color: Colors.black),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide(
                               color: Colors.blue,
                               width: 2,
@@ -313,7 +315,7 @@ class Profileforgetpass extends StatelessWidget {
                           labelText: 'Enter Confirm Password',
                           labelStyle: TextStyle(color: Colors.black),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide(
                               color: Colors.blue,
                               width: 2,
@@ -337,7 +339,7 @@ class Profileforgetpass extends StatelessWidget {
                           minimumSize:
                               Size.zero, // Allows button to shrink to content
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                         ),
                         child: Text("Save"),
@@ -363,9 +365,6 @@ class Profileforgetpass extends StatelessWidget {
                 ],
               ),
             ),
-          ),
-        ],
-      ),
     );
   }
 }

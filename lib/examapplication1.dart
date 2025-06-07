@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/examapp2_kathiravan.dart';
-import 'package:flutter_application_1/menubar_prathipa.dart';
+import 'package:flutter_application_1/examapp2.dart';
+import 'package:flutter_application_1/loginpage.dart';
+import 'package:flutter_application_1/menubar.dart';
 
 void main() {
   runApp(ExamApplicationApp());
@@ -23,9 +24,11 @@ class ExamApplicationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Column(
+          children: [
           // Header Container
           Container(
             decoration: BoxDecoration(
@@ -76,11 +79,19 @@ class ExamApplicationPage extends StatelessWidget {
                             SizedBox(width: 5),
                             Padding(
                               padding: const EdgeInsets.all(1.0),
-                              child: Image.asset(
-                                "images/loginouticon.jpg",
-                                height: 15,
-                                width: 15,
-                              ),
+                              child:  InkWell(
+                              onTap: () {
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Loginpage(),
+                                  ),
+                                  (route) => false,
+                                );
+                              },
+                              child: Image.asset("images/loginouticon.jpg",
+                                height: 15, width: 15),
+                            ),
                             ),
                           ],
                         ),
@@ -135,6 +146,7 @@ class ExamApplicationPage extends StatelessWidget {
                       child: Text(
                         'EXAM APPLICATION',
                         style: TextStyle(
+                          fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
                         ),
@@ -155,7 +167,7 @@ class ExamApplicationPage extends StatelessWidget {
                     child: const Text(
                       'Home',
                       style: TextStyle(
-                        color: Colors.black87, // Changed from blue to dark grey
+                        color: Colors.blue, // Changed from blue to dark grey
                         fontSize: 16,
                       ),
                     ),
@@ -208,6 +220,7 @@ class ExamApplicationPage extends StatelessWidget {
             ),
           ),
         ],
+      ),
       ),
     );
   }

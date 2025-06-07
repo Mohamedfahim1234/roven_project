@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/menubar.dart';
+import 'package:flutter_application_1/profileforgetpassword.dart';
 
 class ProfileScreen extends StatelessWidget {
   final TextStyle labelStyle = TextStyle(fontWeight: FontWeight.w500);
@@ -23,11 +25,19 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('PROFILE'),
+        title: Text('PROFILE',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+        centerTitle: true,
         actions: [
           TextButton(
-            onPressed: () {},
-            child: Text('Home', style: TextStyle(color: Colors.white)),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Menubar(),
+                ),
+              );
+            },
+            child: Text('Home', style: TextStyle(color: Colors.blue,)),
           ),
         ],
       ),
@@ -43,7 +53,14 @@ class ProfileScreen extends StatelessWidget {
             ),
             SizedBox(height: 10),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Profileforgetpass(),
+                  ),
+                );
+              },
               child: Text(
                 'Change Password',
                 style: TextStyle(color: Colors.blue),

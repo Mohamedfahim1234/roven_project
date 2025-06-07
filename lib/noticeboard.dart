@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'menubar_prathipa.dart';
+import 'menubar.dart';
 
 void main() {
   runApp(const NoticeBoardApp());

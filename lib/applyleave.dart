@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/formforleave.dart';
+import 'package:flutter_application_1/loginpage.dart';
 
 class ApplyLeave extends StatelessWidget {
   const ApplyLeave({super.key});
@@ -30,32 +31,41 @@ class ApplyLeave extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Container(
+            alignment: Alignment.center,
+            height: 25,
+            decoration: BoxDecoration(
+              // color: Colors.blue,
+              // borderRadius: BorderRadius.circular(5)
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
           infoRow("Date", date),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+               Text(
+                  "Edit ",
+                  style: TextStyle(color: Colors.blue),
+                ), 
+                Text(
+                  "  Delete",
+                  style: TextStyle(color: Colors.blue),
+                ),
+            ],
+          ),
+            ],
+          ),
+          ),
           infoRow("From", from),
           infoRow("To", to),
           infoRow("Days", days),
           infoRow("Type", type),
           infoRow("Status", status),
-          const SizedBox(height: 8),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  "Edit",
-                  style: TextStyle(color: Colors.indigo[400]),
-                ),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  "Delete",
-                  style: TextStyle(color: Colors.indigo[400]),
-                ),
-              ),
-            ],
-          )
+          
         ],
       ),
     );
@@ -65,6 +75,7 @@ class ApplyLeave extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 2),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text("$title : ",
               style: const TextStyle(fontWeight: FontWeight.w500)),
@@ -76,10 +87,12 @@ class ApplyLeave extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
             // Header with user info
             Container(
               decoration: BoxDecoration(
@@ -98,16 +111,31 @@ class ApplyLeave extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Text("Welcome Mohamed Fahim R",
-                            style: TextStyle(fontSize: 10)),
+                        RichText(text: TextSpan(
+                          children: [
+                            TextSpan(text: "Welcome ",style: TextStyle(fontSize: 10,color: Colors.black)),
+                            TextSpan(text: "Mohamed Fahim R",style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold,color: Colors.black)),
+                          ]
+                        )),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text("210622205042",
                                 style: TextStyle(fontSize: 10)),
                             SizedBox(width: 5),
-                            Image.asset("images/loginouticon.jpg",
+                            InkWell(
+                              onTap: () {
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Loginpage(),
+                                  ),
+                                  (route) => false,
+                                );
+                              },
+                              child: Image.asset("images/loginouticon.jpg",
                                 height: 15, width: 15),
+                            ),
                           ],
                         ),
                         Row(
@@ -132,61 +160,17 @@ class ApplyLeave extends StatelessWidget {
               ),
             ),
             // Navigation header
-            Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border(
-                  bottom: BorderSide(
-                    width: 1,
-                    color: Colors.grey[300]!,
-                  ),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
-                    blurRadius: 4,
-                    offset: const Offset(0, 2),
-                  ),
-                ],
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back, color: Colors.black87),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                  const Text(
-                    "APPLY LEAVE",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.black87,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: Text(
-                      "Home",
-                      style: TextStyle(
-                        color: Colors.indigo[400],
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+
+              
             const SizedBox(height: 16),
             // New Leave Button
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: ElevatedButton.icon(
+                child:SizedBox(
+                 height: MediaQuery.of(context).size.height * 0.04,
+                 child: ElevatedButton.icon(
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -194,14 +178,17 @@ class ApplyLeave extends StatelessWidget {
                           builder: (context) => LeaveApplicationPage()),
                     );
                   },
-                  icon: const Icon(Icons.add, size: 20),
-                  label: const Text("New Leave Request"),
+                  label: const Text("New"),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.indigo[400],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5)
+                    ),
+                    backgroundColor: Colors.blue,
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 12),
+                        horizontal: 30),
                   ),
+                ),
                 ),
               ),
             ),
@@ -232,6 +219,7 @@ class ApplyLeave extends StatelessWidget {
             ),
           ],
         ),
+      ),
       ),
     );
   }

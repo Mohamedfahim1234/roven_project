@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/menubar_prathipa.dart';
+import 'package:flutter_application_1/menubar.dart';
 import 'applyleave.dart';
+import 'package:flutter_application_1/loginpage.dart';
 
 class Attendance extends StatefulWidget {
   const Attendance({super.key});
@@ -131,9 +132,10 @@ class _AttendanceState extends State<Attendance> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(children: [
+    return SafeArea(
+      child: Scaffold(
+        body:  Column(
+            children: [
           // Header with user info
           Container(
             decoration: BoxDecoration(
@@ -159,8 +161,19 @@ class _AttendanceState extends State<Attendance> {
                         children: [
                           Text("210622205042", style: TextStyle(fontSize: 10)),
                           SizedBox(width: 5),
-                          Image.asset("images/loginouticon.jpg",
-                              height: 15, width: 15),
+                          InkWell(
+                              onTap: () {
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Loginpage(),
+                                  ),
+                                  (route) => false,
+                                );
+                              },
+                              child: Image.asset("images/loginouticon.jpg",
+                                height: 15, width: 15),
+                            ),
                         ],
                       ),
                       Row(
@@ -185,12 +198,11 @@ class _AttendanceState extends State<Attendance> {
             ),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              // Title
-              Padding(
-                padding: const EdgeInsets.only(left: 150),
-                child: const Text(
+              Center(
+                child: 
+              const Text(
                   "ATTENDANCE",
                   style: TextStyle(
                     fontSize: 16,
@@ -199,7 +211,9 @@ class _AttendanceState extends State<Attendance> {
                   ),
                 ),
               ),
-
+              SizedBox(width: MediaQuery.of(context).size.width * 1/4),
+              Row(
+                children: [
               // Home button
               TextButton(
                 onPressed: () {
@@ -221,19 +235,59 @@ class _AttendanceState extends State<Attendance> {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
+                ),    
+                ],
               ),
             ],
           ),
+
+        Expanded(
+          child:Center(
+            child:
+        SingleChildScrollView(
+          child:
+          Column(
+            children: [
+         Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            TextButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ApplyLeave(),
+                        ),
+                      );
+                    },
+                    label: Text(
+                      "Apply Leave",
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.blue,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12.0,
+                      ),
+                    ),
+                    ),
+                    ],
+                    ),
+
           // Semester dropdown and Apply Leave button
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              
               children: [
                 // Semester Dropdown
                 Container(
                   height: 40,
+                  width: MediaQuery.of(context).size.width * 0.90,
                   padding: const EdgeInsets.symmetric(horizontal: 12.0),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey[300]!),
@@ -242,6 +296,7 @@ class _AttendanceState extends State<Attendance> {
                   child: DropdownButton<String>(
                     value: selectedSemester,
                     icon: const Icon(Icons.arrow_drop_down),
+                    isExpanded: true,
                     elevation: 16,
                     style: TextStyle(color: Colors.indigo[700], fontSize: 14),
                     underline: Container(height: 0),
@@ -260,56 +315,14 @@ class _AttendanceState extends State<Attendance> {
                   ),
                 ),
 
-                // Apply Leave Button
-                Container(
-                  height: 40,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(4),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        blurRadius: 4,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: TextButton.icon(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ApplyLeave(),
-                        ),
-                      );
-                    },
-                    icon: Icon(
-                      Icons.add_circle_outline,
-                      color: Colors.indigo[400],
-                      size: 20,
-                    ),
-                    label: Text(
-                      "Apply Leave",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.indigo[400],
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    style: TextButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12.0,
-                      ),
-                    ),
-                  ),
-                ),
+                
               ],
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(16),
             child: Table(
-              border: TableBorder.all(),
+              border: TableBorder.all(color: Colors.white),
               columnWidths: {
                 0: FlexColumnWidth(2),
                 1: FlexColumnWidth(3),
@@ -318,65 +331,170 @@ class _AttendanceState extends State<Attendance> {
               },
               children: [
                 TableRow(
-                  decoration: BoxDecoration(color: Colors.white),
+                  decoration: BoxDecoration(color: Colors.grey[300]),
                   children: [
                     TableCell(
                         child: Center(
-                      child: Text("MONTH",
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("MONTH",
                           style: TextStyle(fontWeight: FontWeight.bold)),
+                      ),
                     )),
                     TableCell(
                         child: Center(
-                            child: Text("D",
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text("D",
                                 style:
-                                    TextStyle(fontWeight: FontWeight.bold)))),
+                                    TextStyle(fontWeight: FontWeight.bold),
+                                    ),
+                                    ),
+                                    ),
+                                    ),
                     TableCell(
                         child: Center(
-                            child: Text("A",
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text("A",
                                 style:
-                                    TextStyle(fontWeight: FontWeight.bold)))),
+                                    TextStyle(fontWeight: FontWeight.bold),
+                                    ),
+                                    ),
+                                    ),),
                     TableCell(
                         child: Center(
-                            child: Text("p",
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text("P",
                                 style:
-                                    TextStyle(fontWeight: FontWeight.bold)))),
+                                    TextStyle(fontWeight: FontWeight.bold),
+                                    ),
+                                    ),
+                                    ),
+                                    ),
+                                  
                   ],
                 ),
-                TableRow(children: [
-                  Text("JAN"),
-                  Text("19"),
-                  Text("2"),
-                  Text("17"),
+                TableRow(
+                  decoration: BoxDecoration(color: Colors.grey[300]),
+                  children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("JAN",textAlign: TextAlign.center,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("19",textAlign: TextAlign.center,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("2",textAlign: TextAlign.center,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("17",textAlign: TextAlign.center,),
+                  ),
                 ]),
-                TableRow(children: [
-                  Text("FEB"),
-                  Text("18"),
-                  Text("1"),
-                  Text("17"),
+                TableRow(
+                  decoration: BoxDecoration(color: Colors.grey[300]),
+                  children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("FEB",textAlign: TextAlign.center,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("18",textAlign: TextAlign.center,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("1",textAlign: TextAlign.center,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("17",textAlign: TextAlign.center,),
+                  ),
                 ]),
-                TableRow(children: [
-                  Text("MAR"),
-                  Text("22"),
-                  Text("2"),
-                  Text("20"),
+                TableRow(
+                  decoration: BoxDecoration(color: Colors.grey[300]),
+                  children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("MAR",textAlign: TextAlign.center,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("22",textAlign: TextAlign.center,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("2",textAlign: TextAlign.center,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("20",textAlign: TextAlign.center,),
+                  ),
                 ]),
-                TableRow(children: [
-                  Text("APR"),
-                  Text("11"),
-                  Text("0"),
-                  Text("11"),
+                TableRow(
+                  decoration: BoxDecoration(color: Colors.grey[300]),
+                  children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("APR",textAlign: TextAlign.center,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("11",textAlign: TextAlign.center,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("0",textAlign: TextAlign.center,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("11",textAlign: TextAlign.center,),
+                  ),
                 ]),
-                TableRow(children: [
-                  Text("TOT"),
-                  Text("70"),
-                  Text("5"),
-                  Text("65"),
+                TableRow(
+                  decoration: BoxDecoration(color: Colors.grey[300]),
+                  children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("TOT",textAlign: TextAlign.center,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("70",textAlign: TextAlign.center,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("5",textAlign: TextAlign.center,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("65",textAlign: TextAlign.center,),
+                  ),
                 ]),
-                TableRow(children: [
-                  Text("PERC"),
-                  Text("100"),
-                  Text("7.14"),
-                  Text("92.86"),
+                TableRow(
+                  decoration: BoxDecoration(color: Colors.grey[300]),
+                  children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("PERC",textAlign: TextAlign.center,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("100",textAlign: TextAlign.center,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("7.14",textAlign: TextAlign.center,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("92.86",textAlign: TextAlign.center,),
+                  ),
                 ]),
               ],
             ),
@@ -487,7 +605,11 @@ class _AttendanceState extends State<Attendance> {
               ],
             ),
           ),
-        ]),
+        ],
+        ),
+      ),),),
+            ]
+      ),
       ),
     );
   }

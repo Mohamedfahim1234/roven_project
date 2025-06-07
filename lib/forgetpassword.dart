@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/loginpage.dart';
 
 class Forgetpassout extends StatelessWidget {
   const Forgetpassout({super.key});
@@ -11,10 +12,23 @@ class Forgetpassout extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // Header Section
-          Container(
+        Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+            image: AssetImage("images/jitcollege.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
+         child: SingleChildScrollView(
+          child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
             height: 350,
             width: 400,
-            margin: EdgeInsets.only(top: 50, left: 30, right: 30),
+            margin: EdgeInsets.only(top: 200, left: 30, right: 30),
             decoration: BoxDecoration(
               color: Colors.white70,
               borderRadius: BorderRadius.circular(10),
@@ -105,7 +119,14 @@ class Forgetpassout extends StatelessWidget {
                     ),
                     SizedBox(width: 50), // Adjust spacing between buttons
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Loginpage(),
+                          ),
+                        );
+                      },
                       style: TextButton.styleFrom(
                         foregroundColor: Colors.white,
                         backgroundColor: Colors.blue[900],
@@ -123,6 +144,10 @@ class Forgetpassout extends StatelessWidget {
               ],
             ),
           ),
+         ],
+          ),
+        ),
+        ),
         ],
       ),
     );
