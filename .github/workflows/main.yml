@@ -1,0 +1,22 @@
+name: Docker Build & Run
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Get code from GitHub repo
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Build Docker image
+      - name: Build Docker image
+        run: docker build -t myapp:latest .
+
+      # 3. Run Docker container
+      - name: Run Docker container
+        run: docker run -d -p 3000:3000 myapp:latest
